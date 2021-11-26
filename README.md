@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Central de Solicitações de Boletos!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi inicializado com o [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![GitHub License](https://img.shields.io/github/license/atqjunior/segunda-via-boleto-superlogica?logo=MIT) ![GitHub License](https://img.shields.io/github/package-json/v/atqjunior/segunda-via-boleto-superlogica)
 
-In the project directory, you can run:
+# O que é a Central de Solicitação de Boletos?
 
-### `yarn start`
+### Uma aplicação via API integrado ao Superlógica capaz de automatizar solicitações vindas por site, e-mail, PABX e outros...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Benefícios Central de Solicitação de Boletos?
 
-### `yarn test`
+- Entregue aquilo que o condômino precisa de forma mais rápida;
+- Reduza o número de ligações que chegam para os atendentes (demanda operacional), realocando o profissional do setor para outras funções;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `yarn build`
+## Descrição do Aplicação:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Para atender os condôminos que preferem o site para solicitar a 2ª via de boletos, criamos a Central de Solicitação de Boletos, um sistema inteligente que integra as solicitações no site com a demanda operacional, fazendo o envio da 2ª via de boletos de forma automatizada. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```json
+CPF que deseja fazer a busca no sistema. Se ele foi cadastrado no sistema com pontos e traços, faça a requisição com o valor do parâmetro CPF de acordo como foi cadastrado. Ex: 151.599.502-54 ou 15159950254
+```
+<br/>
 
-### `yarn eject`
+## Funcionalidades:
+### Como os usuários podem utilizá-la:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- O condômino entra no site da administradora e clica em 2ª via de boleto;
+- Uma página será carregada para a digitação do número de CPF,
+- Após digitar o CPF no campo indicado e clicar em SOLICITAR BOLETO, o sistema envia a 2ª via ao condômino por e-mail automaticamente.
+- Caso o mesmo não tenho um e-mail cadastrado, será recomendado ligar para administradora para atualização de cadastro.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Respostas para as requisições: 
+<br/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `Alert Success`
 
-## Learn More
+```json
+{
+  "status": "200",
+  "msg": "Sucesso. 3 boletos enviados. Porém existem 2 pendências que fazem parte de processo judicial."
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json
+{
+  "status": "200",
+  "msg": "Sucesso. 2 boletos enviados."
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `Alert Warning`
 
-### Code Splitting
+```json 
+{ "status": "400", "msg": "Existem unidades que não possuem emails cadastrados, favor verificar." }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json 
+{ "status": "404", "msg": "A unidade possui 2 pendências em processo judicial." } 
+```
+```json 
+{ "status": "404", "msg": "Não possui pendências." } 
+```
 
-### Analyzing the Bundle Size
+```json 
+{ "status": "500", "msg": "Informe cpf, email ou telefone" } 
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `Alert Danger`
 
-### Making a Progressive Web App
+```json 
+{ "status": "0", "msg": "CPF inválido, verifique seus dados e tente novamente." }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<hr/><br/>
 
-### Advanced Configuration
+## Autor do projeto: 
+[Amaury Queiroz Jr](https://github.com/atqjunior) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contribuições: 
+[Felipe Neves](https://github.com/FelipeNevess) | [Douglas Drozda](https://github.com/DouglasDrozda)
