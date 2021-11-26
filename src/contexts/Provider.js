@@ -9,7 +9,7 @@ import fetchApi from '../services/fetchApi'
 function Provider({ children }) {
   const [cpfData, setCpfData] = useState([])
   const [inputText, setInputText] = useState('')
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('')  
 
   async function getCPF() {
     const results = await fetchApi(inputText)
@@ -37,7 +37,7 @@ function Provider({ children }) {
         inputText,
         showAlerts,
         inputValue,
-        setInputValue
+        setInputValue,
       }}
     >
       {children}

@@ -8,7 +8,7 @@ const AlertSuccess = () => {
  
   return (
     <div className="alert alert-success" role="alert">
-      <p>{ cpfData.msg } para o e-mail cadastrado na sua administradora! </p>
+      <p>{ cpfData.msg } para o e-mail cadastrado na Área do Condômino! </p>
     </div>
   )
 }

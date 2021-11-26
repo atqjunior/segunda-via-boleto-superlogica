@@ -4,7 +4,10 @@ import '../styles/Consulta.css'
 
 function InputCPF(){
 
-  const { setInputText, inputValue, setInputValue } = useContext(MyContext);
+  const { 
+    setInputText, 
+    inputValue, 
+    setInputValue } = useContext(MyContext);
 
   function handleChange(event) {
     setInputText(event.target.value)
@@ -15,11 +18,11 @@ function InputCPF(){
     <div className="col-sm-8 mt-4">
       <div className="form-group">
         <input
-          type="text"
-          onChange={handleChange}
-          value={inputValue}
+          type="number"
+          onChange={ handleChange }
+          value={ inputValue }
           className="form-control fr-input"
-          placeholder="Digite o CPF cadastrado na sua unidade:"
+          placeholder="CPF/CNPJ do pagador"
           required
         />
       </div>
