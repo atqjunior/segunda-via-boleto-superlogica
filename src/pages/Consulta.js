@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import MyContext from '../contexts/MyContext';
 import InputCPF from '../components/inputCPF';
 import '../styles/Consulta.css'
+import Informes from '../components/informes';
 
 const Consulta = () => {
   
@@ -11,10 +12,11 @@ const Consulta = () => {
     <main>
       <div className="container">
         <form name="form" method="get">
+          <Informes />
           { cpfData.msg > '' ? showAlerts() : null} 
           <div className="row mt-4">
             <div className="col-sm-12">
-              <h4>Solicite a segunda via do seu boleto online!</h4>
+              <h4>Dados do Boleto - Segunda Via</h4>
             </div>
             <InputCPF />
             <div className="col-sm-4">

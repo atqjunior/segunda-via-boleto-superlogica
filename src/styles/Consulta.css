@@ -24,3 +24,8 @@
 .fr-buttom:hover {
   background-color: #4054A1 !important;
 }
+
+.sub-title {
+  color: #E6224A;
+  margin-top: 30px;
+}
