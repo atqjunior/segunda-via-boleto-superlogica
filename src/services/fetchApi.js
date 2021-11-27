@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 
-const url = `http://localhost:3000/credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?`
+const url = `http://credencial.superlogica.net/condor/atual/publico/emailceobrancasemaberto?`
 
 const requestOptions = {
   method: 'GET',
