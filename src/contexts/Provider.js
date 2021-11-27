@@ -9,13 +9,16 @@ import fetchApi from '../services/fetchApi'
 function Provider({ children }) {
   const [cpfData, setCpfData] = useState([])
   const [inputText, setInputText] = useState('')
-  const [inputValue, setInputValue] = useState('')  
+  const [inputValue, setInputValue] = useState('')
 
   async function getCPF() {
-    const results = await fetchApi(inputText)
-    setCpfData(results.data[0])
-    console.log(results)
-    setInputValue('')
+    try {
+      const data = await fetchApi(inputText)
+      setCpfData(data.data[0])
+      setInputValue('')
+    } catch (error) {
+      console.log('Não foi possível retornar os dados da API:', error)
+    }
   }
 
   const showAlerts = () => {
@@ -37,7 +40,7 @@ function Provider({ children }) {
         inputText,
         showAlerts,
         inputValue,
-        setInputValue,
+        setInputValue
       }}
     >
       {children}
