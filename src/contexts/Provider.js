@@ -14,7 +14,7 @@ function Provider({ children }) {
   async function getCPF() {
     const results = await fetchApi(inputText)
     setCpfData(results.data[0])
-    console.table(results.data[0])
+    console.log(results)
     setInputValue('')
   }
 
