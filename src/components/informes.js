@@ -1,5 +1,5 @@
-import React from 'react'
-import '../styles/Consulta.css'
+import React from 'react';
+import '../styles/Consulta.css';
 
 const Informes = () => {
   return (
@@ -17,4 +17,4 @@ const Informes = () => {
   )
 }
 
-export default Informes
+export default Informes;

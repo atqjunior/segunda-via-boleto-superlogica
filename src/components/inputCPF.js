@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import MyContext from '../contexts/MyContext';
-import '../styles/Consulta.css'
+import '../styles/Consulta.css';
 
-function InputCPF(){
+const InputCPF = () => {
 
   const { 
     setInputText, 
     inputValue, 
     setInputValue } = useContext(MyContext);
 
-  function handleChange(event) {
+  const handleChange = event => {
     setInputText(event.target.value)
     setInputValue(event.target.value);
   }

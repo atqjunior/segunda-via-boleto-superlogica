@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import MyContext from '../contexts/MyContext'
-import AlertDanger from '../components/alertDanger'
-import AlertWarning from '../components/alertWarning'
-import AlertSuccess from '../components/alertSuccess'
-import fetchApi from '../services/fetchApi'
+import PropTypes from 'prop-types';
+import MyContext from '../contexts/MyContext';
+import AlertDanger from '../components/alertDanger';
+import AlertWarning from '../components/alertWarning';
+import AlertSuccess from '../components/alertSuccess';
+import fetchApi from '../services/fetchApi';
 
-function Provider({ children }) {
-  const [cpfData, setCpfData] = useState([])
-  const [inputText, setInputText] = useState('')
-  const [inputValue, setInputValue] = useState('')
+const Provider = ({ children }) => {
+  const [cpfData, setCpfData] = useState([]);
+  const [inputText, setInputText] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
-  async function getCPF() {
+  const  getCPF = async () => {
     try {
-      const data = await fetchApi(inputText)
-      setCpfData(data.data[0])
+      console.log("Solicitando dados da API")
+      const result = await fetchApi(inputText)
+      setCpfData(result.data[0])
       setInputValue('')
     } catch (error) {
       console.log('Não foi possível retornar os dados da API:', error)
@@ -26,7 +27,7 @@ function Provider({ children }) {
       return <AlertSuccess />
     } else if (cpfData.status > '0' && cpfData.status !== '200') {
       return <AlertWarning />
-    } else if (cpfData.status === '0') {
+    } else if (cpfData.status === '0' || cpfData.status === '500') {
       return <AlertDanger />
     }
   }
@@ -52,4 +53,4 @@ Provider.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Provider
+export default Provider;

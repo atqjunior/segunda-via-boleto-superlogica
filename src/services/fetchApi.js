@@ -1,16 +1,15 @@
 import Swal from 'sweetalert2'
 
-const url = `https://credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?cpf=`
+const url = `http://localhost:3000/credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?`
 
 const requestOptions = {
   method: 'GET',
-  redirect: 'follow',
-  mode: 'no-cors'
+  redirect: 'follow'
 }
 
-async function fetchApi(cpf) {
+const fetchApi = async (cpf) => {
   try {
-    const response = await fetch(url + `${cpf}`, requestOptions)
+    const response = await fetch(url + `cpf=${cpf}`, requestOptions)
     const result = await response.json()
     return result;
   } catch (error) {
