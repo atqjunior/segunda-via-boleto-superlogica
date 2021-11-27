@@ -1,5 +1,8 @@
 import Swal from 'sweetalert2'
 
+const url = `https://credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?cpf=`
+/* const url = `https://cors-anywhere.herokuapp.com/credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?cpf=` */
+
 const requestOptions = {
   method: 'GET',
   redirect: 'follow'
@@ -7,10 +10,7 @@ const requestOptions = {
 
 async function fetchApi(cpf) {
   try {
-    const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/credencial.superlogica.net/condor/atual/publico/emailcobrancasemaberto?cpf=${cpf}`,
-      requestOptions
-    )
+    const response = await fetch(url + 'cpf', requestOptions)
     const data = await response.json()
     return data
   } catch (error) {
