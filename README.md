@@ -2,7 +2,7 @@
 
 Este projeto foi inicializado com o [Create React App](https://github.com/facebook/create-react-app).
 
-![GitHub License](https://img.shields.io/github/license/atqjunior/segunda-via-boleto-superlogica?logo=MIT) ![GitHub License](https://img.shields.io/github/package-json/v/atqjunior/segunda-via-boleto-superlogica)
+![GitHub License](https://img.shields.io/github/license/atqjunior/segunda-via-boleto-superlogica?logo=MIT) ![GitHub License](https://img.shields.io/github/package-json/v/atqjunior/segunda-via-boleto-superlogica) [![Netlify Status](https://api.netlify.com/api/v1/badges/4ec4d784-5031-434c-9d92-30e987748680/deploy-status)](https://app.netlify.com/sites/solicitacao-boleto-superlogica/deploys)
 
 # O que é a Central de Solicitação de Boletos?
 
@@ -24,7 +24,8 @@ Este projeto foi inicializado com o [Create React App](https://github.com/facebo
 <br/>
 
 ```json
-CPF que deseja fazer a busca no sistema. Se ele foi cadastrado no sistema com pontos e traços, faça a requisição com o valor do parâmetro CPF de acordo como foi cadastrado. Ex: 151.599.502-54 ou 15159950254
+CPF que deseja fazer a busca no sistema. Se ele foi cadastrado no sistema com pontos e traços, 
+faça a requisição com o valor do parâmetro CPF de acordo como foi cadastrado. Ex: 151.599.502-54 ou 15159950254
 ```
 <br/>
 
