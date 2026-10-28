@@ -1,28 +1,31 @@
-import Swal from 'sweetalert2'
+const url = 'https://credencial.superlogica.net/condor/atual/publico/emailceobrancasemaberto';
 
-const url = `https://credencial.superlogica.net/condor/atual/publico/emailceobrancasemaberto?`
+const fetchApi = async document => {
+  const params = new URLSearchParams({ cpf: document });
+  const response = await fetch(`${url}?${params.toString()}`, {
+    method: 'GET',
+    redirect: 'follow',
+    headers: {
+      Accept: 'application/json'
+    }
+  });
 
-const requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-}
-
-const fetchApi = async (cpf) => {
-  try {
-    const response = await fetch(url + `cpf=${cpf}`, requestOptions)
-    const result = await response.json()
-    return result;
-  } catch (error) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Não foi possível retornar os dados da API',
-      footer:
-        '<a href="https://api.whatsapp.com/send?phone=5585996513023&text=Estou%20na%20p%C3%A1gina%20de%20solicita%C3%A7%C3%A3o%20de%20boleto%20e%20ocorreu%20um%20erro%20pode%20me%20ajudar%3F">Por que eu tenho esse problema?</a>'
-    })
+  if (!response.ok) {
+    throw new Error(`A consulta falhou (HTTP ${response.status}).`);
   }
-}
+
+  let result;
+  try {
+    result = await response.json();
+  } catch (error) {
+    throw new Error('A API retornou uma resposta inválida.');
+  }
+
+  if (!result || !Array.isArray(result.data) || !result.data[0]) {
+    throw new Error('A API retornou dados em um formato inesperado.');
+  }
+
+  return result;
+};
 
 export default fetchApi;
-
-    
